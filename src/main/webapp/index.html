@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Navigation Page</title>
+</head>
+<body>
+	<h1>Books Read Database</h1>
+
+	<form action="AddBookServlet" method="post">
+		<h2>Add a Book to the List</h2>
+		<p>
+			Book Title: <input type="text" name="book">
+		</p>
+		<p>
+			Author: <input type="text" name="author">
+		</p>
+		<input type="submit" name="Add Item">
+	</form>
+	<br />
+	<form action="ViewAllBooksServlet" method="get">
+		<button type="submit">View Book List</button>
+	</form>
+</body>
+</html>
