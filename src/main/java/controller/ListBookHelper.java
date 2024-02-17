@@ -32,13 +32,16 @@ public class ListBookHelper {
 	public void deleteBook(ListBook toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<ListBook> typedQuery = em.createQuery(				//returns an object of a given parameter to a new list titled 'typedQuery'
-				"Select li from ListBook li where li.author = :selectedAuthor and li.book = :selectedBook",
+		TypedQuery<ListBook> typedQuery = em.createQuery("Select li from ListBook li where li.id = :selectedId", 
 				ListBook.class);
+//		TypedQuery<ListBook> typedQuery = em.createQuery(				//returns an object of a given parameter to a new list titled 'typedQuery'
+//				"Select li from ListBook li where li.author = :selectedAuthor and li.book = :selectedBook",
+//				ListBook.class);
 
 		// Substitute parameter with actual data from the toDelete book
-		typedQuery.setParameter("selectedAuthor", toDelete.getAuthor());			//toDelete ListBook object created from StartProgram and getAuthor method from ListBook
-		typedQuery.setParameter("selectedBook", toDelete.getBook());				//toDelete ListBook object created from StartProgram and getBook method from ListBook
+		typedQuery.setParameter("selectedId", toDelete.getId());
+//		typedQuery.setParameter("selectedAuthor", toDelete.getAuthor());			//toDelete ListBook object created from StartProgram and getAuthor method from ListBook
+//		typedQuery.setParameter("selectedBook", toDelete.getBook());				//toDelete ListBook object created from StartProgram and getBook method from ListBook
 
 		// we only want on result
 		typedQuery.setMaxResults(1);
